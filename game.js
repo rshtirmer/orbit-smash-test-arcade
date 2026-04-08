@@ -35,6 +35,8 @@ const state = {
 };
 
 const tierRank = { none: 0, free: 1, supporter: 2, founder: 3 };
+const sdkGlobal =
+  window.SubGamesSDK || window.SubGames?.SubGamesSDK || null;
 
 function createFallbackSdk() {
   return {
@@ -54,8 +56,8 @@ function createFallbackSdk() {
   };
 }
 
-const subgames = window.SubGamesSDK
-  ? window.SubGamesSDK.init({
+const subgames = sdkGlobal
+  ? sdkGlobal.init({
       gameKey: "f11bbd2c-b434-464b-818d-cccec49b52b7",
       overlay: true,
     })
