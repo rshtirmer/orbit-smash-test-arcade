@@ -1,0 +1,152 @@
+:root {
+  color-scheme: dark;
+  --bg-top: #07111f;
+  --bg-bottom: #140f1e;
+  --panel: rgba(7, 16, 29, 0.82);
+  --panel-border: rgba(142, 197, 255, 0.18);
+  --text: #f5f7ff;
+  --muted: #a8b5d3;
+  --accent: #5ef2c7;
+  --accent-strong: #ffe066;
+  --danger: #ff6f91;
+  --shadow: rgba(0, 0, 0, 0.28);
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(46, 120, 255, 0.28), transparent 30%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  color: var(--text);
+}
+
+.shell {
+  width: min(1180px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 24px 0 32px;
+  display: grid;
+  gap: 20px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 24px;
+  box-shadow: 0 18px 60px var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.intro {
+  padding: 24px;
+}
+
+.eyebrow,
+.label {
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+}
+
+h1 {
+  margin: 6px 0 10px;
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  line-height: 0.95;
+}
+
+.lede,
+.message {
+  max-width: 52rem;
+  line-height: 1.5;
+  color: #dbe4ff;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 22px 0 18px;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 13px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+button:hover,
+button:focus-visible {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--accent), #67a9ff);
+  color: #06131a;
+}
+
+.status-grid,
+.hud {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.status-grid strong,
+.hud strong {
+  display: block;
+  margin-top: 6px;
+  font-size: 1.15rem;
+}
+
+.game-panel {
+  padding: 18px;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(147, 196, 255, 0.05), rgba(9, 15, 22, 0.3)),
+    #02050b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hud {
+  margin-top: 16px;
+}
+
+@media (max-width: 720px) {
+  .shell {
+    width: min(100vw - 20px, 1180px);
+    padding-top: 12px;
+  }
+
+  .intro,
+  .game-panel {
+    padding: 16px;
+  }
+
+  .status-grid,
+  .hud {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+}
