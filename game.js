@@ -56,11 +56,11 @@ function createFallbackSdk() {
 
 const subgames = window.SubGamesSDK
   ? window.SubGamesSDK.init({
-      gameKey: "orbit-smash-test",
+      gameKey: "f11bbd2c-b434-464b-818d-cccec49b52b7",
       overlay: true,
     })
   : createFallbackSdk().init({
-      gameKey: "orbit-smash-test",
+      gameKey: "f11bbd2c-b434-464b-818d-cccec49b52b7",
       overlay: true,
     });
 
